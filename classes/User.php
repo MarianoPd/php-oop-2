@@ -38,6 +38,8 @@ class User{
         if($this->credit_card[$num]->getExpireDate() < date("y-m"))return $return . " expired";
         return  $return;
     }
+
+    public function getDiscount(){ return 0;}
     
 
 }
