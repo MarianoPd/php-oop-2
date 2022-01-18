@@ -33,8 +33,11 @@ class User{
 
     //ritorna il risultato di getLastDigits così che il numero di cc sia conservato in CreditCard   e mostri solo le ultime 4 cifre
     public function getCreditCard($num=0) {
-         return $this->credit_card[$num]->getLastDigits(); 
-        }
+        if(sizeof($this->credit_card) == 0) return false;
+        $return = $this->credit_card[$num]->getLastDigits();
+        if($this->credit_card[$num]->getExpireDate() < date("y-m"))return $return . " expired";
+        return  $return;
+    }
     
 
 }

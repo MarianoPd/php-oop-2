@@ -8,10 +8,10 @@ class CreditCard{
 
     function __construct($_on, $_os, $_nu, $_ed)
     {
-        if($_ed < date('m - y')) return false;
+        //if($_ed < date('y-m')) return false;
         $this->owner_name = $_on;
         $this->owner_surname = $_os;
-        $this->number = $_nu;
+        $this->number = strval($_nu);
         $this->expire_date = $_ed;
         return true;
     }
