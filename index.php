@@ -12,7 +12,11 @@ $new_premium = new PremiumUser("Giangiorgio", "Genoveffi", "ciaopoveri@gmail.com
 
 $new_users[0]->setBirthday("12-12-1978");
 $new_users[0]->insetCreditCard(1111222233334444, "22-07");
+$new_users[0]->setAddress("Via dei mille","Roma", "Italia", 12345);
+$new_users[1]->setAddress("Via col vento","Genova", "Italia", 12346);
+
 $new_premium->insetCreditCard(1111222233334444, "20-07");
+$new_premium->setAddress("Via dalla mia propietà", "Milano 2.1","Italia","99999");
 
 $products[] = new Product("Posacenere", 6.99);
 $products[0]->setDescription("posacenere ottimo per contenere cenere");
@@ -43,6 +47,7 @@ $new_cart = new Cart($new_premium, $products);
             <h3><?php echo $new_user->getName()." ".$new_user->getSurname() ?></h3>
             <h4>Datata di nascita: <?php echo $new_user->getBirthday();?></h4>
             <h4>Email: <?php echo $new_user->getEmail();?></h4>
+            <h4>Indirizzo: <?php echo $new_user->getFullAddress(); ?></h4>
             <?php if(!$new_user->getCreditCard(0)){ echo  "<h4>No credit card present </h4>";
                 }else{ echo "<h4>Card: **** **** ****". $new_user->getCreditCard(0)."</h4>"; }
             ?>
@@ -53,6 +58,7 @@ $new_cart = new Cart($new_premium, $products);
         <h3><?php echo $new_premium->getName()." ".$new_premium->getSurname() ?></h3>
         <h4>Datata di nascita: <?php echo $new_premium->getBirthday();?></h4>
         <h4>Email: <?php echo $new_premium->getEmail();?></h4>
+        <h4>Indirizzo: <?php echo $new_premium->getFullAddress(); ?></h4>
         <?php if(!$new_premium->getCreditCard(0)){ echo  "<h4>No credit card present </h4>";
             }else{ echo "<h4>Card: **** **** **** ". $new_premium->getCreditCard(0)."</h4>"; }
         ?>        

@@ -1,8 +1,11 @@
 <?php
 
 require_once __DIR__ . "/CreditCard.php";
+require_once __DIR__ ."/Address.php";
 
 class User{
+    use Address;
+
     protected $name;
     protected $surname;
     protected $birthday;
