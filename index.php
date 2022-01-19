@@ -1,5 +1,9 @@
 <?php
 
+use FFI\Exception;
+
+
+
 require_once __DIR__ . "/classes/User.php";
 require_once __DIR__ . "/classes/CreditCard.php";
 require_once __DIR__ . "/classes/PremiumUser.php";

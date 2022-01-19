@@ -12,6 +12,7 @@ class CreditCard{
         $this->owner_name = $_on;
         $this->owner_surname = $_os;
         $this->number = strval($_nu);
+        $this->checkExpiredDate($_ed);
         $this->expire_date = $_ed;
         return true;
     }
@@ -21,6 +22,13 @@ class CreditCard{
     public function getExpireDate(){ return $this->expire_date;}
     public function getLastDigits(){
         return substr(strval($this->number),12,4);
+    }
+
+    private function checkExpiredDate($_ed){
+        $currentDate = date("y-m");
+        if($_ed < $currentDate){
+            throw new Exception("Carta scaduta");
+        }
     }
 }
 
